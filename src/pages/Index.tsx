@@ -59,11 +59,11 @@ const policyPrinciples = [
 ];
 
 const riskRows = [
-  { risk: "Работа на высоте", location: "Цех №2", level: "Высокий", action: "Инструктаж 25.04" },
-  { risk: "Электрические установки", location: "Серверная", level: "Высокий", action: "Проверка изоляции" },
-  { risk: "Химические вещества", location: "Склад", level: "Средний", action: "СИЗ обязательны" },
-  { risk: "Шум и вибрация", location: "Производство", level: "Средний", action: "Наушники выданы" },
-  { risk: "Скользкое покрытие", location: "Коридор 1А", level: "Низкий", action: "Знак установлен" },
+  { risk: "Работа на высоте", location: "Леса, блок А", level: "Высокий", action: "Инструктаж 25.04" },
+  { risk: "Падение предметов", location: "Монтажная зона", level: "Высокий", action: "Каски обязательны" },
+  { risk: "Электрические установки", location: "Временный щит", level: "Средний", action: "Проверка изоляции" },
+  { risk: "Работа с бетоном", location: "Фундамент, ось 3", level: "Средний", action: "СИЗ обязательны" },
+  { risk: "Шум и вибрация", location: "Вся стройплощадка", level: "Низкий", action: "Наушники выданы" },
 ];
 
 export default function Index() {
@@ -148,17 +148,17 @@ export default function Index() {
           <div>
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6">
               <Icon name="ShieldCheck" size={14} className="text-primary" />
-              <span className="text-xs font-medium text-primary tracking-widest uppercase">Система управления ОТ</span>
+              <span className="text-xs font-medium text-primary tracking-widest uppercase">Охрана труда · Строительный объект</span>
             </div>
 
             <h1 className="font-oswald text-5xl sm:text-6xl xl:text-7xl font-bold leading-tight mb-6">
               ОХРАНА<br />
               <span className="text-primary text-glow-green">ТРУДА</span><br />
-              <span className="text-muted-foreground text-4xl sm:text-5xl">И БЕЗОПАСНОСТЬ</span>
+              <span className="text-muted-foreground text-4xl sm:text-5xl">НА СТРОЙКЕ</span>
             </h1>
 
             <p className="text-muted-foreground text-lg leading-relaxed mb-8 max-w-lg">
-              Комплексная система управления охраной труда. Документы, обучение, оценка рисков и первая помощь — всё в одном месте.
+              Комплексная система управления охраной труда на строительном объекте. Документы, обучение по СИЗ, оценка рисков и первая помощь — всё в одном месте.
             </p>
 
             <div className="flex flex-wrap gap-3">
@@ -197,8 +197,8 @@ export default function Index() {
                   <Icon name="Shield" size={20} className="text-primary" />
                 </div>
                 <div>
-                  <div className="text-sm font-semibold">Соответствует ГОСТ 12.0.230</div>
-                  <div className="text-xs text-muted-foreground">Стандарт системы менеджмента ОТ</div>
+                  <div className="text-sm font-semibold">Строительный объект · Соответствует ГОСТ 12.0.230</div>
+                  <div className="text-xs text-muted-foreground">Система менеджмента ОТ в строительстве</div>
                 </div>
                 <Icon name="CheckCircle" size={20} className="text-primary ml-auto" />
               </div>
@@ -235,7 +235,7 @@ export default function Index() {
               ПОЛИТИКА <span className="text-primary text-glow-green">БЕЗОПАСНОСТИ</span>
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Наша компания принимает полную ответственность за создание безопасных условий труда для каждого сотрудника
+              Наша компания принимает полную ответственность за создание безопасных условий труда на строительном объекте для каждого работника
             </p>
           </div>
 
@@ -533,7 +533,7 @@ export default function Index() {
                 <span className="font-oswald text-lg font-bold">SAFE<span className="text-primary">WORK</span></span>
               </div>
               <p className="text-muted-foreground text-sm leading-relaxed">
-                Система управления охраной труда и производственной безопасностью
+                Охрана труда на строительном объекте — документы, обучение, безопасность
               </p>
             </div>
             <div>
