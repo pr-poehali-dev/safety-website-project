@@ -12,6 +12,49 @@ const navItems = [
   { id: "training", label: "Обучение" },
   { id: "firstaid", label: "Первая помощь" },
   { id: "risks", label: "Оценка рисков" },
+  { id: "regulations", label: "Нормативная база" },
+];
+
+const regulations = [
+  {
+    category: "Постановления Правительства РФ",
+    color: "text-blue-400",
+    bgColor: "bg-blue-500/10",
+    borderColor: "border-blue-500/20",
+    icon: "Landmark",
+    items: [
+      { code: "Постановление № 2816", title: "Примерное положение о системе управления охраной труда", year: "2021" },
+      { code: "Постановление № 447", title: "Правила обеспечения работников средствами индивидуальной защиты", year: "2023" },
+      { code: "Постановление № 1464", title: "Порядок обучения по охране труда и проверки знаний", year: "2021" },
+      { code: "Постановление № 559н", title: "Требования охраны труда при строительстве, реконструкции и ремонте", year: "2020" },
+    ],
+  },
+  {
+    category: "ГОСТы и стандарты",
+    color: "text-green-400",
+    bgColor: "bg-green-500/10",
+    borderColor: "border-green-500/20",
+    icon: "BookMarked",
+    items: [
+      { code: "ГОСТ 12.0.230-2007", title: "ССБТ. Системы управления охраной труда. Общие требования", year: "2007" },
+      { code: "ГОСТ 12.1.004-91", title: "ССБТ. Пожарная безопасность. Общие требования", year: "1991" },
+      { code: "ГОСТ 12.4.011-89", title: "ССБТ. Средства защиты работающих. Общие требования", year: "1989" },
+      { code: "ГОСТ Р 12.0.007-2009", title: "ССБТ. Системы управления охраной труда в организации", year: "2009" },
+    ],
+  },
+  {
+    category: "Трудовой кодекс РФ",
+    color: "text-orange-400",
+    bgColor: "bg-orange-500/10",
+    borderColor: "border-orange-500/20",
+    icon: "Scale",
+    items: [
+      { code: "Статья 212 ТК РФ", title: "Обязанности работодателя по обеспечению безопасных условий труда", year: "" },
+      { code: "Статья 214 ТК РФ", title: "Обязанности работника в области охраны труда", year: "" },
+      { code: "Статья 221 ТК РФ", title: "Обеспечение работников средствами индивидуальной защиты", year: "" },
+      { code: "Статья 225 ТК РФ", title: "Обучение и профессиональная подготовка в области охраны труда", year: "" },
+    ],
+  },
 ];
 
 const stats = [
@@ -517,6 +560,64 @@ export default function Index() {
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* REGULATIONS */}
+      <section id="regulations" className="py-24 bg-card/30">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="text-center mb-16">
+            <span className="text-xs font-medium text-accent tracking-widest uppercase mb-3 block">06 — Нормативная база</span>
+            <h2 className="font-oswald text-4xl sm:text-5xl font-bold mb-4">
+              ПОСТАНОВЛЕНИЯ РФ <span className="text-primary text-glow-green">И ГОСТы</span>
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Основные нормативно-правовые акты, регулирующие охрану труда в строительстве
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-3 gap-6">
+            {regulations.map((group, gi) => (
+              <div key={gi} className={`rounded-2xl bg-card border ${group.borderColor} overflow-hidden`}>
+                <div className={`px-6 py-4 border-b ${group.borderColor} ${group.bgColor} flex items-center gap-3`}>
+                  <Icon name={group.icon as "Landmark"} size={20} className={group.color} fallback="FileText" />
+                  <h3 className={`font-oswald text-base font-bold ${group.color}`}>{group.category}</h3>
+                </div>
+                <div className="divide-y divide-border">
+                  {group.items.map((item, ii) => (
+                    <div key={ii} className="px-6 py-4 hover:bg-secondary/30 transition-colors cursor-pointer group">
+                      <div className="flex items-start justify-between gap-3">
+                        <div className="flex-1 min-w-0">
+                          <div className={`text-xs font-bold mb-1 ${group.color}`}>{item.code}</div>
+                          <p className="text-sm text-foreground leading-snug">{item.title}</p>
+                          {item.year && (
+                            <span className="text-xs text-muted-foreground mt-1 block">Принят: {item.year}</span>
+                          )}
+                        </div>
+                        <Icon name="ExternalLink" size={14} className="text-muted-foreground group-hover:text-primary transition-colors shrink-0 mt-1" />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-8 rounded-2xl bg-gradient-to-r from-primary/10 via-transparent to-accent/10 border border-primary/20 px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+                <Icon name="Bell" size={22} className="text-primary" />
+              </div>
+              <div>
+                <div className="font-semibold">Следите за изменениями в законодательстве</div>
+                <div className="text-sm text-muted-foreground">Нормативная база обновляется — проверяйте актуальность документов</div>
+              </div>
+            </div>
+            <button className="px-5 py-2.5 rounded-xl bg-primary text-primary-foreground text-sm font-semibold hover:bg-primary/90 neon-glow-green transition-all duration-300 hover:scale-105 whitespace-nowrap flex items-center gap-2 shrink-0">
+              <Icon name="RefreshCw" size={15} />
+              Проверить обновления
+            </button>
           </div>
         </div>
       </section>
